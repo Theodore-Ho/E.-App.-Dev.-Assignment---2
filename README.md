@@ -1,6 +1,6 @@
 # Country Table
 
-- Demo: [ajax.yuhong.me](https://ajax.yuhong.me/) (My server based in Hong Kong, may be delayed 2~4 seconds if you visit in Europe)
+- Demo: [countrytable.yuhong.me](https://countrytable.yuhong.me/) (My server based in Hong Kong, may be delayed 2~4 seconds if you visit in Europe)
 - Github: [Theodore-Ho/E. App. Dev. Assignment-2](https://github.com/Theodore-Ho/E.-App.-Dev.-Assignment---2)
 - Install: 
   - ```git clone https://github.com/Theodore-Ho/E.-App.-Dev.-Assignment---2.git```
@@ -25,5 +25,5 @@ The assignment is about using AJAX and JSON technologies to develop a minor SPA 
     - rotate animation
     - change every character colour
     - drag paragraph
-    - hide paragraph
+    - hide paragraph (please try the above effects before this, this effect is hiding the paragraph)
   - select a specific cell of the table and change its colour (1 pts)
