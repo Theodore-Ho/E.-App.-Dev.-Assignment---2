@@ -257,14 +257,14 @@ function effect6() {
 // ----------------- //
 
 async function generateTable(display) {
-    let table_data = []; // requirements require the use two-dimensional array
+    let table_data = []; // requirements require the use two-dimensional array, I suggest using a one-dimensional array containing json objects, the 2D array is wierd
     let country_exist = false;
 
     // capital
     const capital_str = await getCapital();
     const capital = $.parseJSON(capital_str);
     for(let i of capital) {
-        const country = [i.country, i.city];
+        const country = [i.country, i.city, null, null, null, null, null];
         table_data.push(country);
     }
 
@@ -277,12 +277,12 @@ async function generateTable(display) {
             if(i.country === table_data[j][0]) {
                 country_exist = true;
                 const country = table_data[j];
-                country.push(i.continent);
+                country[2] = i.continent;
                 break;
             }
         }
         if(!country_exist) { // if the country not exist, create a new array append at the end, with capital null
-            const country = [i.country, null, i.continent];
+            const country = [i.country, null, i.continent, null, null, null, null];
             table_data.push(country);
         }
     }
@@ -296,12 +296,12 @@ async function generateTable(display) {
             if(i.country === table_data[j][0]) {
                 country_exist = true;
                 const country = table_data[j];
-                country.push(i.costline);
+                country[3] = i.costline;
                 break;
             }
         }
         if(!country_exist) {
-            const country = [i.country, null, null, i.costline];
+            const country = [i.country, null, null, i.costline, null, null, null];
             table_data.push(country);
         }
     }
@@ -315,12 +315,12 @@ async function generateTable(display) {
             if(i.country === table_data[j][0]) {
                 country_exist = true;
                 const country = table_data[j];
-                country.push(i.currency_name);
+                country[4] = i.currency_name;
                 break;
             }
         }
         if(!country_exist) {
-            const country = [i.country, null, null, null, i.currency_name];
+            const country = [i.country, null, null, null, i.currency_name, null, null];
             table_data.push(country);
         }
     }
@@ -334,12 +334,12 @@ async function generateTable(display) {
             if(i.country === table_data[j][0]) {
                 country_exist = true;
                 const country = table_data[j];
-                country.push(i.tld);
+                country[5] = i.tld;
                 break;
             }
         }
         if(!country_exist) {
-            const country = [i.country, null, null, null, null, i.tld];
+            const country = [i.country, null, null, null, null, i.tld, null];
             table_data.push(country);
         }
     }
@@ -353,7 +353,7 @@ async function generateTable(display) {
             if(i.country === table_data[j][0]) {
                 country_exist = true;
                 const country = table_data[j];
-                country.push(i.flag_base64);
+                country[6] = i.flag_base64;
                 break;
             }
         }
@@ -490,15 +490,6 @@ function mouseEvent() {
 
 // clean merged data before generate table
 function cleanData(table_data) {
-    // complement array
-    for(let i in table_data) {
-        if(table_data[i].length < 7) {
-            for(let j = table_data[i].length; j < 7; j++) {
-                table_data[i].push(null);
-            }
-        }
-    }
-
     // replace text
     for(let i in table_data) {
         for(let j = 0; j < 7; j++) {
