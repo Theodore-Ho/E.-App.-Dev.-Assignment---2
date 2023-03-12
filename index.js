@@ -24,7 +24,7 @@ const server = http.createServer(function (req, res) {
   }
 });
 
-server.listen(9001);
+server.listen(0);
 server.on('listening', function() {
   const port = server.address().port;
   console.log("Server is running on: http://localhost:" + port + "\nWaiting for connect...");
