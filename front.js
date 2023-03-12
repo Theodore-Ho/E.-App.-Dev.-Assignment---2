@@ -278,7 +278,6 @@ async function generateTable(display) {
                 country_exist = true;
                 const country = table_data[j];
                 country.push(i.continent);
-                table_data.push(country);
                 break;
             }
         }
@@ -298,7 +297,6 @@ async function generateTable(display) {
                 country_exist = true;
                 const country = table_data[j];
                 country.push(i.costline);
-                table_data.push(country);
                 break;
             }
         }
@@ -318,7 +316,6 @@ async function generateTable(display) {
                 country_exist = true;
                 const country = table_data[j];
                 country.push(i.currency_name);
-                table_data.push(country);
                 break;
             }
         }
@@ -338,7 +335,6 @@ async function generateTable(display) {
                 country_exist = true;
                 const country = table_data[j];
                 country.push(i.tld);
-                table_data.push(country);
                 break;
             }
         }
@@ -358,7 +354,6 @@ async function generateTable(display) {
                 country_exist = true;
                 const country = table_data[j];
                 country.push(i.flag_base64);
-                table_data.push(country);
                 break;
             }
         }
